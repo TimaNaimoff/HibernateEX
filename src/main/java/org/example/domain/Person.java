@@ -42,4 +42,9 @@ public class Person {
     public void setPersonAge(Integer personAge) {
         this.personAge = personAge;
     }
+
+    @Override
+    public String toString() {
+        return this.personName+":"+this.personAge;
+    }
 }
