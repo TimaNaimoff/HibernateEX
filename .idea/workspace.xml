@@ -47,8 +47,11 @@
       <recent name="C:\Users\malik\HibernatePP" />
       <recent name="C:\Users\malik\HibernatePP\src\main\resources" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.App2">
+  <component name="RunManager" selected="Application.Apper">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.App" />
       <module name="HibernatePP" />
@@ -75,8 +78,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Apper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.Apper" />
+      <module name="HibernatePP" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Apper" />
         <item itemvalue="Application.App2" />
         <item itemvalue="Application.App" />
       </list>
