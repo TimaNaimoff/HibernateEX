@@ -1,6 +1,10 @@
 package org.example.domain_one_to_many;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
+
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -15,6 +19,7 @@ public class Person {
     @Column(name="person_age")
     private Integer personAge;
     @OneToMany(mappedBy="owner")
+    @Cascade({CascadeType.SAVE_UPDATE,CascadeType.REMOVE})
     private List<Item> items;
 
     public Person() {
@@ -55,6 +60,11 @@ public class Person {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+    public void addItem(Item item){
+        if(this.items==null)this.items=new ArrayList<>();
+        this.items.add(item);
+        item.setOwner(this);
     }
 
     @Override
