@@ -6,7 +6,7 @@ import javax.persistence.*;
 @Table(name="school")
 public class School {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="school_id")
     private Integer schoolId;
     @Column(name="school_name")
@@ -41,6 +41,5 @@ public class School {
 
     public void setDirector(Director director) {
         this.director = director;
-        director.setScool(this);
     }
 }

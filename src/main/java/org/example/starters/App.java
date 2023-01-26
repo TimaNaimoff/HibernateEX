@@ -1,4 +1,4 @@
-package org.example;
+package org.example.starters;
 
 
 import org.example.domain.Person;

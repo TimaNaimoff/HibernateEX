@@ -13,7 +13,7 @@ public class Director {
     private Integer directorId;
     @Column(name="_director_name")
     private String directorName;
-    @Column(name="_director_name")
+    @Column(name="_director_age")
     private Integer directorAge;
     @OneToOne(mappedBy="director")
     @Cascade(CascadeType.SAVE_UPDATE)
@@ -29,8 +29,8 @@ public class Director {
     }
 
     public void setScool(School school) {
+        school.setDirector(this);
         this.school = school;
-        this.school.setDirector(this);
 
     }
 

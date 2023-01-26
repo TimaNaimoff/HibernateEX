@@ -1,4 +1,4 @@
-package org.example;
+package org.example.starters;
 
 import org.example.domain_one_to_one.Passport;
 import org.example.domain_one_to_one.Person;
