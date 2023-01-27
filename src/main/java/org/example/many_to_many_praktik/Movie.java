@@ -2,6 +2,7 @@ package org.example.many_to_many_praktik;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="movie")
@@ -12,13 +13,7 @@ public class Movie {
     private Integer movieId;
     @Column(name="movie_name")
     private String movieName;
-    @ManyToMany
-    @JoinTable(
-            name="actor_movie",
-            joinColumns = @JoinColumn(name="actor_id"),
-            inverseJoinColumns = @JoinColumn(name="movie_id")
-
-    )
+    @ManyToMany(mappedBy = "movies")
     private List<Actor>actors;
     public Movie(String movieName) {
         this.movieName = movieName;
@@ -49,5 +44,18 @@ public class Movie {
 
     public void setMovieName(String movieName) {
         this.movieName = movieName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return Objects.equals(movieId, movie.movieId) && Objects.equals(movieName, movie.movieName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(movieId, movieName);
     }
 }

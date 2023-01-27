@@ -2,6 +2,7 @@ package org.example.many_to_many_praktik;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "_actor")
@@ -14,7 +15,13 @@ public class Actor {
     private String actorName;
     @Column(name="_actor_age")
     private Integer actorAge;
-    @ManyToMany(mappedBy = "actors")
+    @ManyToMany
+    @JoinTable(
+            name="actor_movie",
+            joinColumns = @JoinColumn(name="actor_id"),
+            inverseJoinColumns = @JoinColumn(name="movie_id")
+
+    )
     private List<Movie>movies;
 
     public Actor(){
@@ -56,5 +63,16 @@ public class Actor {
         this.movies = movies;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Actor actor = (Actor) o;
+        return Objects.equals(actorId, actor.actorId) && Objects.equals(actorName, actor.actorName) && Objects.equals(actorAge, actor.actorAge);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(actorId, actorName, actorAge);
+    }
 }

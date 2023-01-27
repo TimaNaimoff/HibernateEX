@@ -51,9 +51,9 @@
       <recent name="org.example" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.StarterManyToMany">
-    <configuration name="Apper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.starters.Apper" />
+  <component name="RunManager" selected="Application.LazyTramplain">
+    <configuration name="Cascading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.starters.Cascading" />
       <module name="HibernatePP" />
       <extension name="coverage">
         <pattern>
@@ -65,8 +65,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Cascading" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.starters.Cascading" />
+    <configuration name="LazyTramplain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.starters.LazyTramplain" />
       <module name="HibernatePP" />
       <extension name="coverage">
         <pattern>
@@ -119,11 +119,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.LazyTramplain" />
         <item itemvalue="Application.StarterManyToMany" />
         <item itemvalue="Application.OneToOneAuth" />
         <item itemvalue="Application.OneToOne" />
         <item itemvalue="Application.Cascading" />
-        <item itemvalue="Application.Apper" />
       </list>
     </recent_temporary>
   </component>
