@@ -14,7 +14,9 @@ public class LazyTramplain {
         Configuration configuration = new Configuration().addAnnotatedClass(Person.class).
                 addAnnotatedClass(Item.class);
         try(SessionFactory sessionFactory=configuration.buildSessionFactory();
-            Session session = sessionFactory.openSession()){
+            Session session = sessionFactory.openSession();
+            Session session3 = sessionFactory.getCurrentSession()
+        ){
             try{
                 session.beginTransaction();
 
@@ -26,13 +28,31 @@ public class LazyTramplain {
 //                 Item item=session.get(Item.class,2);
 //                 System.out.println(item);
 //                 System.out.println(item.getPerson().getItemList());
-                Person person =session.get(Person.class,1);
-//                System.out.println(person);
-                Hibernate.initialize(person.getItemList());
-                session.getTransaction().commit();
-                 System.out.println(person.getItemList());
+                 Person person =session.get(Person.class,1);
+                 System.out.println(person);
+//                Hibernate.initialize(person.getItemList());
+                 session.getTransaction().commit();
+                 System.out.println("Session is ended!");
+                 session3.beginTransaction();
+
+                 Person personer=(Person)session3.merge(person);
+//                 Hibernate.initialize(personer.getItemList());
+                 session.getTransaction().commit();
+                  List<Item>item=session.createQuery("SELECT i FROM Item i WHERE i.person.personId=:personId",Item.class)
+                        .setParameter("personId",person.getPersonId()).getResultList();
+                System.out.println("Second session is ended! "+ item );
+//                 System.out.println(personer.getItemList());
+//                 System.out.println("This is second transaction");
+
+                 session3.getTransaction().commit();
+
         }catch(Exception e){
-                session.getTransaction().rollback();
+                if(session.getTransaction().getStatus().canRollback()){
+                    session.getTransaction().rollback();
+                }
+                if(session3.getTransaction().getStatus().canRollback()) {
+                    session3.getTransaction().rollback();
+                }
             }
             }
     }
